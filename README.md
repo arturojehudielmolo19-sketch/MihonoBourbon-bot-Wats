@@ -196,7 +196,7 @@ Puedes usar cualquiera de estos:
 !menu
 
 
-'Comandos básicos'
+**Comandos básicos**
 
 Comando	Descripción
 
@@ -208,9 +208,9 @@ Comando	Descripción
 
 .version	Ver versión actual
 
-Stickers
+**Stickers**
 
-'Comando	Descripción'
+Comando	Descripción
 
 .sticker / .s	Imagen o video → sticker
 
@@ -219,7 +219,7 @@ Stickers
 
 Uso: Responde a una imagen o video con .s
 
-Descargas
+**Descargas**
 
 'Comando	Descripción'
 
@@ -227,13 +227,13 @@ Descargas
 
 .play <URL>	Descargar desde URL de YouTube
 
-'Ejemplos:'
+**Ejemplos:**
 
 .play never gonna give you up
 
 .play https://www.youtube.com/watch?v=dQw4w9WgXcQ
 
-'Diversión'
+**Diversión**
 
 .kiss @user	Mandar un beso
 
@@ -241,7 +241,7 @@ Descargas
 
 .slap @user	Cachetear
 
-'Economía'
+**Economía**
 Comando	Descripción	Cooldown
 
 .work	Trabajar	5 min
@@ -286,7 +286,7 @@ Comando	Descripción	Requiere
 
 Rangos disponibles: user, admin, superadmin, owner
 
-'Administración de grupos'
+**Administración de grupos**
 
 Comando	Descripción	Requiere
 
@@ -304,7 +304,7 @@ Comando	Descripción	Requiere
 
 .demote @user	Quitar admin de WhatsApp	admin
 
-'Configuración de grupos'
+**Configuración de grupos**
 
 Comando	Descripción
 
@@ -324,7 +324,7 @@ Variables en textos personalizados:
 
 @group → nombre del grupo
 
-'Ejemplo:'
+**Ejemplo:**
 
 .welcome set ¡Bienvenido @user a @group! 🎉
 
@@ -338,7 +338,7 @@ FFmpeg no está en el PATH. Agrega C:\ffmpeg\bin a las variables de entorno.
 yt-dlp: command not found
 Mueve yt-dlp.exe a C:\ffmpeg\bin\ y reinicia Git Bash.
 
-'El bot no arranca por dependencias'
+**El bot no arranca por dependencias**
 bash
 cd ~/MihonoBourbon-bot-Wats
 rm -rf node_modules
@@ -346,7 +346,7 @@ npm install
 .play falla con "Sign in to confirm you're not a bot"
 Las cookies expiraron (pasa cada 2-3 meses). Vuelve a exportar cookies de YouTube y reemplaza cookies.txt.
 
-'El bot se desconecta solo'
+**El bot se desconecta solo**
 Borra la carpeta auth_info/ y reinicia para escanear QR otra vez:
 bash
 rm -rf auth_info
@@ -484,17 +484,17 @@ MihonoBourbon-bot-Wats/
 ##📜 Changelog
 Ver el comando .changelog en el bot, o el archivo data/changelog.json.
 
-'v1.2'
+**v1.2**
 ✨ Nuevo comando .changelog
 
-'v1.1'
+**v1.1**
 🔧 Arreglado: .top mostraba usuarios de todos los grupos
 
 ✨ Nuevo: .top filtra solo usuarios del grupo actual
 
 ✨ Nuevo: soporte para múltiples prefijos (. / # !)
 
-'v1.0'
+*+v1.0**
 🤖 Bot base con Baileys
 
 📋 Comandos básicos

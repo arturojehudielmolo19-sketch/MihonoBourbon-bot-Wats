@@ -1,6 +1,6 @@
 # MihonoBourbon Bot v1.2
 
-UMA MUSUME EN TODOS LADOS INCLUSO ECATEPEC XD
+UMA MUSUME EN TODOS LADOS INCLUSO ECATEPEC XD (echo 45% con ayuda de la buena IA de DeepSeek, una IA, echa por una IA, algo bastante ironico)
 
 ## 📁 Estructura
 - `index.js` → punto de entrada
@@ -26,7 +26,7 @@ npm start
   3. Escanear QR
 
 ## 👤 Owner
-JID: 270419831566512@lid "WaosXD"
+"WaosXD"
 Asistido por la buena IA DeepSeek
 
 ## 📅 v1.2

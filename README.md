@@ -52,7 +52,7 @@ Cualquier error, solucionalo vos XD, na mentira, contacta a arturojehudielmolo19
 4. **Cierra y reabre** cualquier terminal
 
 **Verificar:**
-```bash
+``bash
 node -v
 npm -v
 
@@ -418,18 +418,26 @@ bash
 mv /sdcard/Download/cookies.txt ~/MihonoBourbon-bot-Wats/cookies.txt
 Verificar:
 
+
 bash
+
 ls -la ~/MihonoBourbon-bot-Wats/cookies.txt
+
 7. Arrancar el bot
+
 bash
+
 npm start
+
 Escanea el QR con WhatsApp y el bot funcionará igual que en Windows.
 
 ⚠️ Consideraciones para Termux
 El bot solo corre mientras la app de Termux esté abierta. Para que siga con la pantalla apagada:
 
 bash
+
 termux-wake-lock
+
 Ejecútalo antes de npm start.
 
 Batería: Termux puede consumir bastante batería si el bot está activo 24/7
@@ -537,18 +545,13 @@ Herramientas: FFmpeg, yt-dlp, Node.js
 📄 Licencia
 Este proyecto está bajo la licencia MIT. Puedes usarlo, modificarlo y distribuirlo libremente.
 
-⭐ ¿Te gustó?
-Dale una estrella ⭐ al repositorio si te sirvió.
-
 ¿Dudas o sugerencias? Abre un issue.
-
-text
 
 Guarda con `Ctrl + O` → `Enter` → `Ctrl + X`.
 
 ## Verifica que no se corrompió
 
-```bash
+``bash
 grep -n "Termux\|MihonoBourbon Bot\|WaosXD" ~/MihonoBourbon/README.md
 Debe devolver varias líneas:
 

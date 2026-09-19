@@ -42,6 +42,20 @@ Asistido por la buena IA DeepSeek
 
 Cualquier error, solucionalo vos XD, na mentira, contacta a arturojehudielmolo19@gmail.com y espera entre 1 y 30 dias habiles 
 
+## 🚀 Instalación paso a paso
+
+### 1. Instalar Node.js
+
+1. Ve a [nodejs.org](https://nodejs.org)
+2. Descarga la versión **LTS**
+3. Ejecuta el instalador y deja todo por defecto (asegúrate de marcar **"Add to PATH"**)
+4. **Cierra y reabre** cualquier terminal
+
+**Verificar:**
+```bash
+node -v
+npm -v
+
 2. Instalar Git Bash
 Ve a git-scm.com/download/win
 
@@ -181,74 +195,136 @@ Puedes usar cualquiera de estos:
 
 !menu
 
+
 Comandos básicos
+
 Comando	Descripción
+
 .menu	Ver todos los comandos
+
 .ping	Prueba de vida + latencia
+
 .changelog	Ver historial de versiones
+
 .version	Ver versión actual
+
 Stickers
+
 Comando	Descripción
+
 .sticker / .s	Imagen o video → sticker
+
+
 .s <texto>	Sticker con nombre personalizado
+
 Uso: Responde a una imagen o video con .s
 
 Descargas
+
 Comando	Descripción
+
 .play <canción>	Descargar audio de YouTube
+
 .play <URL>	Descargar desde URL de YouTube
+
 Ejemplos:
 
 text
+
 .play never gonna give you up
+
 .play https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
 Diversión
+
 Comando	Descripción
+
 .kiss @user	Mandar un beso
+
 .hug @user	Dar un abrazo
+
 .slap @user	Cachetear
+
 Economía
+
 Comando	Descripción	Cooldown
+
 .work	Trabajar	5 min
+
 .pescar	Pescar	3 min
+
 .ruleta <cantidad>	Apostar	-
+
 .balance	Ver saldo	-
+
 .depositar <cant>	Al banco	-
+
 .retirar <cant>	Del banco	-
+
 .robar @user	Robar efectivo	5 min
+
 .top	Ranking del grupo	-
+
 Ejemplos:
 
 text
+
 .work
+
 .pescar
+
 .ruleta 100
+
 .ruleta 500 negro
+
 .depositar all
+
 .retirar 200
+
 .robar @amigo
+
 Rangos del bot
+
 Comando	Descripción	Requiere
+
 .ranks	Ver lista de rangos	-
+
 .setrank <rango> @user	Dar rango	superadmin
+
 Rangos disponibles: user, admin, superadmin, owner
 
 Administración de grupos
+
 Comando	Descripción	Requiere
+
 .warn @user <razón>	Advertir (3 = expulsión)	admin
+
 .unwarn @user	Quitar última advertencia	admin
+
 .warns @user	Ver advertencias	-
+
 .resetwarn @user	Limpiar advertencias	admin
+
 .ban @user <razón>	Expulsar	admin
+
 .promote @user	Hacer admin de WhatsApp	admin
+
 .demote @user	Quitar admin de WhatsApp	admin
+
 Configuración de grupos
+
 Comando	Descripción
+
 .antilink on/off	Activar/desactivar borrado de links
+
 .welcome on/off	Activar/desactivar bienvenida
+
 .welcome bye on/off	Activar/desactivar despedida
+
 .welcome set <texto>	Personalizar bienvenida
+
 .welcome setbye <texto>	Personalizar despedida
+
 Variables en textos personalizados:
 
 @user → mención del usuario
@@ -259,6 +335,7 @@ Ejemplo:
 
 text
 .welcome set ¡Bienvenido @user a @group! 🎉
+
 🔧 Solución de problemas
 node: command not found
 No instalaste Node.js bien. Reinstálalo y reinicia la terminal.

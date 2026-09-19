@@ -429,55 +429,84 @@ Rendimiento: yt-dlp puede ir más lento en celulares de gama baja
 
 Cookies: hay que renovarlas cada 2-3 meses igual que en Windows
 
-## 🎯 Compatibilidad multiplataforma
-Característica	Windows	Linux	macOS	Termux
-Comandos básicos	✅	✅	✅	✅
-Stickers (FFmpeg)	✅	✅	✅	✅
-Descargas YouTube	✅	✅	✅	✅
-Economía	        ✅	✅	✅	✅
-Administración	  ✅	✅	✅	✅
-El código está preparado para funcionar en todos los sistemas usando rutas relativas.
-
 ## 📁 Estructura del proyecto
-text
+
 MihonoBourbon-bot-Wats/
+
 ├── index.js              # Punto de entrada del bot
+
 ├── package.json          # Dependencias y scripts
+
 ├── cookies.txt           # (no se sube) Cookies de YouTube
+
 ├── .gitignore            # Archivos ignorados por git
+
 ├── commands/             # Comandos del bot
+
 │   ├── menu.js
+
 │   ├── ping.js
+
 │   ├── sticker.js
+
 │   ├── play.js
+
 │   ├── kiss.js
+
 │   ├── hug.js
+
 │   ├── slap.js
+
 │   ├── work.js
+
 │   ├── pescar.js
+
 │   ├── ruleta.js
+
 │   ├── balance.js
+
 │   ├── depositar.js
+
 │   ├── retirar.js
+
 │   ├── robar.js
+
 │   ├── top.js
+
 │   ├── warn.js
+
 │   ├── ban.js
+
 │   ├── promote.js
+
 │   ├── demote.js
+
 │   ├── antilink.js
+
 │   ├── welcome.js
+
 │   ├── changelog.js
+
 │   └── ...
+
 ├── lib/
+
 │   ├── db.js             # Base de datos JSON
+
 │   └── permissions.js    # Helpers de permisos
+
 ├── data/                 # Datos persistentes (no se sube)
+
 │   ├── ranks.json
+
 │   ├── economy.json
+
 │   ├── warns.json
+
 │   ├── groups.json
+
 │   └── changelog.json    # (este SÍ se sube)
+
 └── auth_info/            # (no se sube) Sesión de WhatsApp
 
 ## 📜 Changelog

@@ -92,7 +92,7 @@ Verificar:
 
 bash
 aria2c --version
-📦 Clonar e instalar el bot
+## 📦 Clonar e instalar el bot
 1. Clonar el repositorio
 bash
 cd ~
@@ -128,7 +128,7 @@ bash
 ls -la ~/MihonoBourbon-bot-Wats/cookies.txt
 Debe pesar más de 0 bytes.
 
-🎬 Primera ejecución
+## 🎬 Primera ejecución
 1. Arrancar el bot
 bash
 npm start
@@ -183,7 +183,7 @@ bash
 npm start
 Ahora tus comandos aparecerán con rango: owner. 🎉
 
-##🎮 Cómo usar el bot
+## 🎮 Cómo usar el bot
 Prefijos disponibles
 Puedes usar cualquiera de estos:
 
@@ -328,7 +328,7 @@ Variables en textos personalizados:
 
 .welcome set ¡Bienvenido @user a @group! 🎉
 
-##🔧 Solución de problemas
+## 🔧 Solución de problemas
 node: command not found
 No instalaste Node.js bien. Reinstálalo y reinicia la terminal.
 
@@ -358,7 +358,7 @@ Verifica que el bot diga "✅ Bot conectado a WhatsApp"
 
 Verifica que estés usando uno de los prefijos . / # !
 
-##📱 Instalación en Termux (Android)
+## 📱 Instalación en Termux (Android)
 El bot también funciona en Termux (Android) con los mismos comandos, gracias a que usa rutas relativas.
 
 1. Instalar Termux
@@ -414,7 +414,7 @@ bash
 npm start
 Escanea el QR con WhatsApp y el bot funcionará igual que en Windows.
 
-##⚠️ Consideraciones para Termux
+## ⚠️ Consideraciones para Termux
 El bot solo corre mientras la app de Termux esté abierta. Para que siga con la pantalla apagada:
 
 bash
@@ -429,17 +429,16 @@ Rendimiento: yt-dlp puede ir más lento en celulares de gama baja
 
 Cookies: hay que renovarlas cada 2-3 meses igual que en Windows
 
-🎯 Compatibilidad multiplataforma
+## 🎯 Compatibilidad multiplataforma
 Característica	Windows	Linux	macOS	Termux
 Comandos básicos	✅	✅	✅	✅
 Stickers (FFmpeg)	✅	✅	✅	✅
 Descargas YouTube	✅	✅	✅	✅
-Gifs de anime	✅	✅	✅	✅
-Economía	✅	✅	✅	✅
-Administración	✅	✅	✅	✅
+Economía	        ✅	✅	✅	✅
+Administración	  ✅	✅	✅	✅
 El código está preparado para funcionar en todos los sistemas usando rutas relativas.
 
-##📁 Estructura del proyecto
+## 📁 Estructura del proyecto
 text
 MihonoBourbon-bot-Wats/
 ├── index.js              # Punto de entrada del bot
@@ -481,7 +480,7 @@ MihonoBourbon-bot-Wats/
 │   └── changelog.json    # (este SÍ se sube)
 └── auth_info/            # (no se sube) Sesión de WhatsApp
 
-##📜 Changelog
+## 📜 Changelog
 Ver el comando .changelog en el bot, o el archivo data/changelog.json.
 
 **v1.2**
@@ -505,7 +504,7 @@ Ver el comando .changelog en el bot, o el archivo data/changelog.json.
 
 🚨 Administración de grupos
 
-##👨‍💻 Créditos
+## 👨‍💻 Créditos
 Desarrollador: WaosXD
 
 Asistencia: DeepSeek-IA
@@ -514,7 +513,7 @@ Librería principal: Baileys
 
 Herramientas: FFmpeg, yt-dlp, Node.js
 
-##📄 Licencia
+## 📄 Licencia
 Este proyecto está bajo la licencia MIT. Puedes usarlo, modificarlo y distribuirlo libremente.
 
 ¿Dudas o sugerencias? Abre un issue.

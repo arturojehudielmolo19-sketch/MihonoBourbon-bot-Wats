@@ -1,0 +1,25 @@
+# Dependencias
+node_modules/
+
+# Sesión de WhatsApp (¡CRÍTICO!)
+auth_info/
+auth_info_backup/
+
+# Cookies de YouTube (¡CRÍTICO!)
+cookies.txt
+
+# Datos personales
+data/*.json
+!data/changelog.json
+
+# Imágenes personalizadas
+menu-image.jpg
+
+# Logs y basura
+*.log
+.DS_Store
+Thumbs.db
+
+# Variables de entorno
+.env
+.env.local

@@ -1,0 +1,42 @@
+{
+  "versions": [
+    {
+      "version": "1.2",
+      "date": "2026-09-18",
+      "title": "Changelog y arreglos",
+      "changes": [
+        "✨ Nuevo: comando .changelog (historial de versiones)",
+        "🔧 Arreglado: .top mostraba usuarios de todos los grupos",
+        "✨ Nuevo: .top filtra solo usuarios del grupo actual",
+        "✨ Nuevo: soporte para múltiples prefijos (. / # !)"
+      ]
+    },
+    {
+      "version": "1.1",
+      "date": "2026-09-18",
+      "title": "Mejoras internas",
+      "changes": [
+        "🔧 Optimización del sistema de bienvenida/despedida",
+        "🔧 Manejo de participantes como objetos (Baileys nuevo)",
+        "✨ Soporte para .lid y .phoneNumber en eventos de grupo"
+      ]
+    },
+    {
+      "version": "1.0",
+      "date": "2026-09-18",
+      "title": "Lanzamiento inicial",
+      "changes": [
+        "🤖 Bot base con Baileys conectado a WhatsApp",
+        "📋 Comandos básicos: .ping, .menu, .sticker",
+        "📥 Descargas: .play (audio de YouTube)",
+        "🎭 Diversión: .kiss, .hug, .slap",
+        "💰 Economía: .work, .pescar, .ruleta, .balance",
+        "🏦 Banco: .depositar, .retirar, .robar, .top",
+        "👑 Sistema de rangos: .ranks, .setrank",
+        "🚨 Administración: .warn, .ban, .promote, .demote",
+        "⚙️ Configuración de grupos: .antilink, .welcome",
+        "🎨 Menú con imagen personalizada"
+      ]
+    }
+  ]
+}

@@ -1,8 +1,6 @@
 import db from '../lib/db.js'
 import { getTarget, isGroup } from '../lib/permissions.js'
 
-const COOLDOWN = 1000 * 60 * 5 // 5 minutos
-
 export default {
   name: 'robar',
   aliases: ['steal', 'roba'],
@@ -16,7 +14,12 @@ export default {
       }, { quoted: msg })
     }
 
-    const lastRob = db.getCooldown(sender, 'Rob')
+    const config = db.economyConfig.robar
+    const COOLDOWN = config.cooldownMinutos * 60 * 1000
+    const simbolo = db.getMonedaSimbolo()
+    const moneda = db.getMonedaNombre()
+
+    const lastRob = db.getCooldown(from, sender, 'Rob')
     const now = Date.now()
 
     if (now - lastRob < COOLDOWN) {
@@ -44,40 +47,47 @@ export default {
     const senderNumber = sender.split('@')[0]
     const targetNumber = target.split('@')[0]
 
-    // Solo se puede robar el EFECTIVO (no el banco)
-    const targetCash = db.getMoney(target)
+    const targetCash = db.getMoney(from, target)
 
     if (targetCash < 100) {
       return await sock.sendMessage(from, {
-        text: `💸 @${targetNumber} no tiene suficiente efectivo para robar.\n\n_Solo tiene $${targetCash} en efectivo._`,
+        text: `💸 @${targetNumber} no tiene suficiente efectivo para robar.\n\n_Solo tiene ${simbolo} ${targetCash} en efectivo._`,
         mentions: [target]
       }, { quoted: msg })
     }
 
-    db.setCooldown(sender, 'Rob', now)
+    // Verificar si el objetivo tiene escudo
+    if (db.hasEffect(target, 'escudo')) {
+      db.setCooldown(from, sender, 'Rob', now)
+      db.consumeEffect(target, 'escudo')
 
-    // 40% de éxito, 60% de fracaso
-    const exito = Math.random() < 0.4
+      return await sock.sendMessage(from, {
+        text: `🛡️ *¡ESCUDO ACTIVADO!*\n\n@${targetNumber} estaba protegido y bloqueó el robo de @${senderNumber}\n\n_El escudo fue consumido._`,
+        mentions: [target, sender]
+      }, { quoted: msg })
+    }
+
+    db.setCooldown(from, sender, 'Rob', now)
+
+    const exito = Math.random() < config.probabilidadExito
 
     if (exito) {
-      // Roba entre 10% y 40% del efectivo
       const porcentaje = 0.1 + Math.random() * 0.3
       const robado = Math.floor(targetCash * porcentaje)
 
-      db.addMoney(target, -robado)
-      db.addMoney(sender, robado)
+      db.addMoney(from, target, -robado)
+      db.addMoney(from, sender, robado)
 
       await sock.sendMessage(from, {
-        text: `🦹 *¡ROBO EXITOSO!*\n\n@${senderNumber} le robó *$${robado}* a @${targetNumber}\n\n💰 Tu nuevo saldo: *$${db.getMoney(sender)}*`,
+        text: `🦹 *¡ROBO EXITOSO!*\n\n@${senderNumber} le robó *${simbolo} ${robado.toLocaleString('es-MX')}* ${moneda} a @${targetNumber}\n\n💰 Tu nuevo saldo: *${simbolo} ${db.getMoney(from, sender).toLocaleString('es-MX')}*`,
         mentions: [sender, target]
       }, { quoted: msg })
     } else {
-      // Falla: paga una multa del 15% de su efectivo
-      const multa = Math.floor(db.getMoney(sender) * 0.15)
-      db.addMoney(sender, -multa)
+      const multa = Math.floor(db.getMoney(from, sender) * config.multaFallidaPorcentaje)
+      db.addMoney(from, sender, -multa)
 
       await sock.sendMessage(from, {
-        text: `🚔 *¡TE ATRAPARON!*\n\n@${senderNumber} intentó robar a @${targetNumber} pero la policía lo atrapó.\n\n💸 Multa: *$${multa}*\n💰 Tu saldo: *$${db.getMoney(sender)}*`,
+        text: `🚔 *¡TE ATRAPARON!*\n\n@${senderNumber} intentó robar a @${targetNumber} pero la policía lo atrapó.\n\n💸 Multa: *${simbolo} ${multa.toLocaleString('es-MX')}* ${moneda}\n💰 Tu saldo: *${simbolo} ${db.getMoney(from, sender).toLocaleString('es-MX')}*`,
         mentions: [sender, target]
       }, { quoted: msg })
     }

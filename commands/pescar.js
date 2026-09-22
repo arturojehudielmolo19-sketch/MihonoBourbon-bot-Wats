@@ -22,7 +22,7 @@ export default {
   description: 'Pesca para ganar dinero',
 
   async run({ sock, msg, from, sender }) {
-    const lastFish = db.getCooldown(sender, 'Fish')
+    const lastFish = db.getCooldown(from, sender, 'Fish')
     const now = Date.now()
 
     if (now - lastFish < COOLDOWN) {
@@ -34,41 +34,36 @@ export default {
       }, { quoted: msg })
     }
 
-    // 70% de pescar algo, 30% de no pescar nada
+    // 30% de no pescar nada
     if (Math.random() < 0.3) {
-      db.setCooldown(sender, 'Fish', now)
+      db.setCooldown(from, sender, 'Fish', now)
       return await sock.sendMessage(from, {
         text: '🎣 No pescaste nada esta vez. ¡Sigue intentando!'
       }, { quoted: msg })
     }
 
-    // Pescar algo - la mayoría son comunes, los raros son raros
+    // Pescar algo
     const random = Math.random()
     let pez
     if (random < 0.60) {
-      // 60% comunes
       const comunes = peces.filter(p => p.rareza === 'común' || p.rareza === 'basura')
       pez = comunes[Math.floor(Math.random() * comunes.length)]
     } else if (random < 0.85) {
-      // 25% poco comunes
       const pocoComunes = peces.filter(p => p.rareza === 'poco común')
       pez = pocoComunes[Math.floor(Math.random() * pocoComunes.length)]
     } else if (random < 0.97) {
-      // 12% raros
       const raros = peces.filter(p => p.rareza === 'raro')
       pez = raros[Math.floor(Math.random() * raros.length)]
     } else if (random < 0.995) {
-      // 2.5% épicos
       pez = peces.find(p => p.rareza === 'épico')
     } else {
-      // 0.5% legendarios
       pez = peces.find(p => p.rareza === 'legendario')
     }
 
-    db.addMoney(sender, pez.valor)
-    db.setCooldown(sender, 'Fish', now)
+    db.addMoney(from, sender, pez.valor)
+    db.setCooldown(from, sender, 'Fish', now)
 
-    const total = db.getMoney(sender)
+    const total = db.getMoney(from, sender)
     const senderNumber = sender.split('@')[0]
 
     await sock.sendMessage(from, {

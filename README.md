@@ -1,44 +1,50 @@
-# MihonoBourbon Bot v1.2
+# 🤖 MihonoBourbon Bot
 
-UMA MUSUME EN TODOS LADOS INCLUSO ECATEPEC XD
+Bot de WhatsApp hecho co [Baileys](https://github.com/WhiskeySockets/Baileys).
 
-## 📁 Estructura
-- `index.js` → punto de entrada
-- `commands/` → comandos
-- `lib/db.js` → base de datos JSON
-- `lib/permissions.js` → helpers de permisos
-- `data/` → datos (warns, rangos, economía)
-- `auth_info/` → sesión de WhatsApp (no tocar)
-- `cookies.txt` → cookies de YouTube (para .play)
+> Desarrollado por **WaosXD** con asistencia de **DeepSeek-IA**.
 
-## 🚀 Arrancar
-npm start
+![Version](https://img.shields.io/badge/version-1.2-blue)
+![Node](https://img.shields.io/badge/node-%3E%3D18-green)
+![License](https://img.shields.io/badge/license-MIT-yellow)
 
-## 🔧 Mantenimiento
-- Si las cookies de YouTube expiran (cada 2-3 meses):
-  1. Exportar de nuevo con "Get cookies.txt LOCALLY"
-  2. Reemplazar `cookies.txt`
-  3. Reiniciar el bot
+---
 
-- Si la sesión de WhatsApp se cae:
-  1. Borrar carpeta `auth_info/`
-  2. Reiniciar
-  3. Escanear QR
+## ✨ Características
 
-## 👤 Owner
-JID: 270419831566512@lid "WaosXD"
-Asistido por la buena IA DeepSeek
+- 🎨 **Stickers** personalizados con nombre de pack
+- 📥 **Descargas de YouTube** (audio MP3)
+- 🎭 **Gifs de anime** (kiss, hug, slap)
+- 💰 **Economía completa** con banco y robos
+- 👑 **Sistema de rangos** (owner, superadmin, admin, user)
+- 🚨 **Administración de grupos** (warn, ban, promote, demote)
+- ⚙️ **Configuración por grupo** (antilink, welcome, bye)
+- 🔧 **Múltiples prefijos**: `.` `/` `#` `!`
+- 📋 **Changelog integrado** para ver actualizaciones
 
-## 📅 v1.2
-- Comandos básicos, stickers, descargas YouTube
-- Diversión (kiss, hug, slap)
-- Economía (work, pescar, ruleta, banco, robar)
-- Administración (warn, ban, promote)
-- Sistema de rangos
-- comando para saber cambios con cada actualizacion
-## cosas adicionales
-- el top puede hacer top con todos los que hayan interactuado con el, cuidao con eso
+---
 
+## 📋 Requisitos previos
 
-Cualquier error, solucionalo vos XD, na mentira, contacta a arturojehudielmolo19@gmail.com y espera entre 1 y 30 dias habiles 
+- **Windows 10/11** (también funciona en Linux/Mac con ajustes)
+- **Node.js LTS** → [Descargar](https://nodejs.org)
+- **Git Bash** → [Descargar](https://git-scm.com/download/win)
+- **FFmpeg** → `winget install ffmpeg`
+- **yt-dlp** → [Descargar](https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe)
+- **aria2** (opcional pero recomendado) → `winget install aria2.aria2`
 
+---
+
+## 🚀 Instalación paso a paso
+
+### 1. Instalar Node.js
+
+1. Ve a [nodejs.org](https://nodejs.org)
+2. Descarga la versión **LTS**
+3. Ejecuta el instalador y deja todo por defecto (asegúrate de marcar **"Add to PATH"**)
+4. **Cierra y reabre** cualquier terminal
+
+**Verificar:**
+```bash
+node -v
+npm -v

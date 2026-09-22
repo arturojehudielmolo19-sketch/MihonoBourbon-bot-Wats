@@ -133,7 +133,7 @@ async function startBot() {
       console.log('❌ Conexión cerrada. Reconectar:', shouldReconnect)
       if (shouldReconnect) startBot()
     } else if (connection === 'open') {
-      console.log('✅ Bot conectado a WhatsApp\n')
+      console.log('✅ Mihono Bourbon arribando a WhatsApp\n')
     }
   })
 
@@ -168,6 +168,23 @@ async function startBot() {
 
     if (db.isBanned(sender) && sender !== sock.user?.id) {
       return
+    }
+
+        // Dar XP por mensaje (solo en grupos)
+    if (isGroup(from)) {
+      try {
+        const xpRandom = Math.floor(Math.random() * 5) + 1
+        const result = db.addXP(from, sender, xpRandom)
+        if (result.leveledUp) {
+          const senderNumber = sender.split('@')[0]
+          await sock.sendMessage(from, {
+            text: `🎉 *¡SUBISTE DE NIVEL!*\n\n@${senderNumber} alcanzó el *nivel ${result.newLevel}* 🚀`,
+            mentions: [sender]
+          })
+        }
+      } catch (e) {
+        console.error('Error XP:', e.message)
+      }
     }
 
     // ---- ANTILINK ----

@@ -1,6 +1,20 @@
 {
   "versions": [
     {
+      "version": "1.8",
+      "date": "2026-09-19",
+      "title": "Corrección de bugs y compatibilidad",
+      "changes": [
+        "🔧 Arreglado: el dinero ahora es independiente por cada grupo",
+        "🔧 Arreglado: balance, top, robar, depositar y retirar funcionan por chat",
+        "✨ Mejorado: sistema de economía reescrito (clave chatId + userId)",
+        "✨ Mejorado: .menu ahora muestra el prefijo que usas (./#/!)",
+        "✨ Mejorado: .menu incluye .changelog y .version",
+        "📝 Documentación: README con sección de Termux",
+        "🎯 Preparación para v2.0 (comandos void para despues)"
+      ]
+    },
+    {
       "version": "1.2",
       "date": "2026-09-18",
       "title": "Changelog y arreglos",

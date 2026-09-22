@@ -8,13 +8,16 @@ export default {
 
   async run({ sock, msg, from, sender }) {
     const target = getTarget(msg) || sender
-    const cash = db.getMoney(target)
-    const bank = db.getBank(target)
+    const cash = db.getMoney(from, target)
+    const bank = db.getBank(from, target)
     const total = cash + bank
     const targetNumber = target.split('@')[0]
 
+    const simbolo = db.getMonedaSimbolo()
+    const moneda = db.getMonedaNombre()
+
     await sock.sendMessage(from, {
-      text: `💳 *Balance de @${targetNumber}*\n\n💵 Efectivo: *$${cash.toLocaleString('es-MX')}*\n🏦 Banco: *$${bank.toLocaleString('es-MX')}*\n\n💰 *Total: $${total.toLocaleString('es-MX')}*`,
+      text: `💳 *Balance de @${targetNumber}*\n\n💵 Efectivo: *${simbolo} ${cash.toLocaleString('es-MX')}* ${moneda}\n🏦 Banco: *${simbolo} ${bank.toLocaleString('es-MX')}* ${moneda}\n\n💰 *Total: ${simbolo} ${total.toLocaleString('es-MX')}* ${moneda}`,
       mentions: [target]
     }, { quoted: msg })
   }

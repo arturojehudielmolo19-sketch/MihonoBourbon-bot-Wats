@@ -4,71 +4,76 @@ import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-// 🔧 CONFIGURA AQUÍ
-const MENU_IMAGE_URL = 'URL_DE_TU_IMAGEN' // ej: 'https://i.imgur.com/xxxxx.jpg'
-// O si prefieres imagen local, pon el nombre del archivo y déjalo así:
+// 🔧 CONFIGURA AQUÍ la imagen del menú
+// Opción A: URL de imagen (Imgur, Discord, etc.)
+const MENU_IMAGE_URL = ''
+// Opción B: Archivo local (menu-image.jpg en la raíz del bot)
 const MENU_IMAGE_LOCAL = path.join(__dirname, '..', 'menu-image.jpg')
+
+const CURRENT_VERSION = '1.2'
 
 export default {
   name: 'menu',
   aliases: ['help', 'comandos', 'ayuda'],
   description: 'Muestra la lista de comandos',
 
-  async run({ sock, msg, from }) {
-    const menuText = `╭━━━〔 * Mihono Bourbon * 〕━━━╮
+  async run({ sock, msg, from, usedPrefix = '.' }) {
+    const menuText = `╭━━━〔 *Mihono Bourbon* 〕━━━╮
 ┃
 ┃ 📋 *MENÚ DE COMANDOS*
 ┃
 ┣━━ 🔹 *BÁSICOS*
-┃ • .menu ── Este menú
-┃ • .ping ── Prueba de vida
-┃ • .info ── Info del bot
+┃ • ${usedPrefix}menu ── Este menú
+┃ • ${usedPrefix}ping ── Prueba de vida
+┃ • ${usedPrefix}changelog ── Historial de cambios
+┃ • ${usedPrefix}version ── Versión actual
 ┃
 ┣━━ 🎨 *STICKERS*
-┃ • .sticker / .s ── Imagen/video a sticker
-┃ • .toimg ── Sticker a imagen
+┃ • ${usedPrefix}sticker / ${usedPrefix}s ── Imagen/video a sticker
+┃ • ${usedPrefix}s <texto> ── Sticker con nombre
 ┃
 ┣━━ 📥 *DESCARGAS*
-┃ • .play ── Audio de YouTube
+┃ • ${usedPrefix}play <canción> ── Audio de YouTube
 ┃
 ┣━━ 🎭 *DIVERSIÓN*
-┃ • .kiss @user ── Beso
-┃ • .hug @user ── Abrazo
-┃ • .slap @user ── Cachetada
+┃ • ${usedPrefix}kiss @user ── Beso
+┃ • ${usedPrefix}hug @user ── Abrazo
+┃ • ${usedPrefix}slap @user ── Cachetada
 ┃
 ┣━━ 💰 *ECONOMÍA*
-┃ • .work ── Trabajar
-┃ • .pescar ── Pescar
-┃ • .ruleta ── Apostar
-┃ • .balance ── Ver saldo
-┃ • .depositar ── Al banco
-┃ • .retirar ── Del banco
-┃ • .robar @user ── Robar
-┃ • .top ── Ranking
+┃ • ${usedPrefix}work ── Trabajar
+┃ • ${usedPrefix}pescar ── Pescar
+┃ • ${usedPrefix}ruleta <cant> ── Apostar
+┃ • ${usedPrefix}balance ── Ver saldo
+┃ • ${usedPrefix}depositar <cant> ── Al banco
+┃ • ${usedPrefix}retirar <cant> ── Del banco
+┃ • ${usedPrefix}robar @user ── Robar
+┃ • ${usedPrefix}top ── Ranking del grupo
 ┃
 ┣━━ 👑 *RANGOS*
-┃ • .ranks ── Ver rangos
-┃ • .setrank ── Dar rango
+┃ • ${usedPrefix}ranks ── Ver rangos
+┃ • ${usedPrefix}setrank ── Dar rango
 ┃
 ┣━━ 🚨 *ADMINISTRACIÓN*
-┃ • .warn @user ── Advertir
-┃ • .unwarn @user ── Quitar warn
-┃ • .warns @user ── Ver warns
-┃ • .resetwarn @user ── Limpiar
-┃ • .ban @user ── Expulsar
-┃ • .promote @user ── Dar admin
-┃ • .demote @user ── Quitar admin
-┃ • .antilink ── Links
-┃ • .welcome ── Bienvenida
+┃ • ${usedPrefix}warn @user ── Advertir
+┃ • ${usedPrefix}unwarn @user ── Quitar warn
+┃ • ${usedPrefix}warns @user ── Ver warns
+┃ • ${usedPrefix}resetwarn @user ── Limpiar
+┃ • ${usedPrefix}ban @user ── Expulsar
+┃ • ${usedPrefix}promote @user ── Dar admin
+┃ • ${usedPrefix}demote @user ── Quitar admin
+┃ • ${usedPrefix}antilink ── Links
+┃ • ${usedPrefix}welcome ── Bienvenida
 ┃
-╰━━━━━━━━━━━━━━━━━━━━━━╯
+╰━━━━━━━━━━━━━━━━━━━━━━━╯
 
-> _Escribe un comando para usarlo_ 🚀`
+> _💡 Puedes usar_ \`.\` \`/\` \`#\` \`!\` _como prefijo_
+> _Escribe_ *${usedPrefix}changelog* _para ver las novedades_ 🚀`
 
     // Intentar enviar con imagen
     try {
       // 1. Probar URL primero
-      if (MENU_IMAGE_URL && MENU_IMAGE_URL !== 'URL_DE_TU_IMAGEN') {
+      if (MENU_IMAGE_URL && MENU_IMAGE_URL.trim() !== '') {
         await sock.sendMessage(from, {
           image: { url: MENU_IMAGE_URL },
           caption: menuText
@@ -91,7 +96,6 @@ export default {
 
     } catch (e) {
       console.error('Error menú:', e.message)
-      // Fallback a solo texto
       await sock.sendMessage(from, { text: menuText }, { quoted: msg })
     }
   }

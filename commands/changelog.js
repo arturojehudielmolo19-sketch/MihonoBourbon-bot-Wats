@@ -1,6 +1,6 @@
 import db from '../lib/db.js'
 
-const CURRENT_VERSION = '1.8'
+const CURRENT_VERSION = '2.0'
 
 export default {
   name: 'changelog',

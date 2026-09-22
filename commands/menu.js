@@ -5,12 +5,10 @@ import { fileURLToPath } from 'url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // 🔧 CONFIGURA AQUÍ la imagen del menú
-// Opción A: URL de imagen (Imgur, Discord, etc.)
 const MENU_IMAGE_URL = ''
-// Opción B: Archivo local (menu-image.jpg en la raíz del bot)
 const MENU_IMAGE_LOCAL = path.join(__dirname, '..', 'menu-image.jpg')
 
-const CURRENT_VERSION = '1.2'
+const CURRENT_VERSION = '2.0'
 
 export default {
   name: 'menu',
@@ -18,61 +16,96 @@ export default {
   description: 'Muestra la lista de comandos',
 
   async run({ sock, msg, from, usedPrefix = '.' }) {
-    const menuText = `╭━━━〔 *Mihono Bourbon* 〕━━━╮
+    const p = usedPrefix
+
+    const menuText = `╭━━━〔 🤖 *MihonoBourbon v${CURRENT_VERSION}* 〕━━━╮
 ┃
 ┃ 📋 *MENÚ DE COMANDOS*
 ┃
 ┣━━ 🔹 *BÁSICOS*
-┃ • ${usedPrefix}menu ── Este menú
-┃ • ${usedPrefix}ping ── Prueba de vida
-┃ • ${usedPrefix}changelog ── Historial de cambios
-┃ • ${usedPrefix}version ── Versión actual
+┃ • ${p}menu ── Este menú
+┃ • ${p}ping ── Prueba de vida
+┃ • ${p}changelog ── Historial de cambios
+┃ • ${p}version ── Versión actual
 ┃
-┣━━ 🎨 *STICKERS*
-┃ • ${usedPrefix}sticker / ${usedPrefix}s ── Imagen/video a sticker
-┃ • ${usedPrefix}s <texto> ── Sticker con nombre
+┣━━ 🎨 *STICKERS Y MEDIA*
+┃ • ${p}sticker / ${p}s ── Imagen/video a sticker
+┃ • ${p}toimg ── Sticker a imagen
+┃ • ${p}tovideo ── Sticker animado a video
+┃ • ${p}attp ── Texto a sticker animado
+┃ • ${p}revelar ── Revelar imagen de "ver una vez"
 ┃
 ┣━━ 📥 *DESCARGAS*
-┃ • ${usedPrefix}play <canción> ── Audio de YouTube
+┃ • ${p}play ── Audio de YouTube
+┃ • ${p}instagram ── Posts/reels de IG
+┃ • ${p}twitter ── Videos de Twitter/X
 ┃
 ┣━━ 🎭 *DIVERSIÓN*
-┃ • ${usedPrefix}kiss @user ── Beso
-┃ • ${usedPrefix}hug @user ── Abrazo
-┃ • ${usedPrefix}slap @user ── Cachetada
+┃ • ${p}kiss @user ── Beso
+┃ • ${p}hug @user ── Abrazo
+┃ • ${p}slap @user ── Cachetada
+┃ • ${p}piropo @user ── Piropo
+┃ • ${p}8ball ── Bola mágica
+┃ • ${p}dado ── Tirar dado
+┃ • ${p}moneda ── Cara o cruz
+┃ • ${p}frase ── Frase del día
+┃
+┣━━ 👤 *PERFIL*
+┃ • ${p}perfil ── Ver perfil
+┃ • ${p}setnombre ── Definir nombre
+┃ • ${p}setgenero ── Definir género
+┃ • ${p}setbio ── Definir bio
+┃ • ${p}setedad ── Definir edad
+┃
+┣━━ 📊 *NIVELES*
+┃ • ${p}nivel ── Ver tu nivel y XP
+┃ • ${p}topniveles ── Ranking del grupo
 ┃
 ┣━━ 💰 *ECONOMÍA*
-┃ • ${usedPrefix}work ── Trabajar
-┃ • ${usedPrefix}pescar ── Pescar
-┃ • ${usedPrefix}ruleta <cant> ── Apostar
-┃ • ${usedPrefix}balance ── Ver saldo
-┃ • ${usedPrefix}depositar <cant> ── Al banco
-┃ • ${usedPrefix}retirar <cant> ── Del banco
-┃ • ${usedPrefix}robar @user ── Robar
-┃ • ${usedPrefix}top ── Ranking del grupo
+┃ • ${p}balance ── Ver saldo
+┃ • ${p}work ── Trabajar
+┃ • ${p}pescar ── Pescar
+┃ • ${p}minar ── Minar
+┃ • ${p}cazar ── Cazar
+┃ • ${p}crimen ── Alto riesgo
+┃ • ${p}daily ── Recompensa diaria
+┃ • ${p}ruleta ── Apostar
+┃ • ${p}loteria ── Comprar boletos
+┃ • ${p}depositar ── Al banco
+┃ • ${p}retirar ── Del banco
+┃ • ${p}robar @user ── Robar
+┃ • ${p}top ── Ranking de ricos
+┃
+┣━━ 🛒 *TIENDA*
+┃ • ${p}tienda ── Ver items
+┃ • ${p}comprar <id> ── Comprar item
+┃ • ${p}inv ── Ver inventario
+┃ • ${p}usar <id> ── Usar item
 ┃
 ┣━━ 👑 *RANGOS*
-┃ • ${usedPrefix}ranks ── Ver rangos
-┃ • ${usedPrefix}setrank ── Dar rango
+┃ • ${p}ranks ── Ver rangos
+┃ • ${p}setrank ── Dar rango
 ┃
 ┣━━ 🚨 *ADMINISTRACIÓN*
-┃ • ${usedPrefix}warn @user ── Advertir
-┃ • ${usedPrefix}unwarn @user ── Quitar warn
-┃ • ${usedPrefix}warns @user ── Ver warns
-┃ • ${usedPrefix}resetwarn @user ── Limpiar
-┃ • ${usedPrefix}ban @user ── Expulsar
-┃ • ${usedPrefix}promote @user ── Dar admin
-┃ • ${usedPrefix}demote @user ── Quitar admin
-┃ • ${usedPrefix}antilink ── Links
-┃ • ${usedPrefix}welcome ── Bienvenida
+┃ • ${p}warn @user ── Advertir
+┃ • ${p}unwarn @user ── Quitar warn
+┃ • ${p}warns @user ── Ver warns
+┃ • ${p}resetwarn @user ── Limpiar
+┃ • ${p}ban @user ── Expulsar
+┃ • ${p}promote @user ── Dar admin
+┃ • ${p}demote @user ── Quitar admin
+┃ • ${p}antilink ── Links
+┃ • ${p}welcome ── Bienvenida
+┃
+┣━━ ⚙️ *CONFIG*
+┃ • ${p}setconfig ── Config de economía (owner)
 ┃
 ╰━━━━━━━━━━━━━━━━━━━━━━━╯
 
 > _💡 Puedes usar_ \`.\` \`/\` \`#\` \`!\` _como prefijo_
-> _Escribe_ *${usedPrefix}changelog* _para ver las novedades_ 🚀`
+> _Escribe_ *${p}changelog* _para ver las novedades_ 🚀`
 
-    // Intentar enviar con imagen
     try {
-      // 1. Probar URL primero
       if (MENU_IMAGE_URL && MENU_IMAGE_URL.trim() !== '') {
         await sock.sendMessage(from, {
           image: { url: MENU_IMAGE_URL },
@@ -81,7 +114,6 @@ export default {
         return
       }
 
-      // 2. Probar imagen local
       if (fs.existsSync(MENU_IMAGE_LOCAL)) {
         const imageBuffer = fs.readFileSync(MENU_IMAGE_LOCAL)
         await sock.sendMessage(from, {
@@ -91,9 +123,7 @@ export default {
         return
       }
 
-      // 3. Si no hay imagen, solo texto
       await sock.sendMessage(from, { text: menuText }, { quoted: msg })
-
     } catch (e) {
       console.error('Error menú:', e.message)
       await sock.sendMessage(from, { text: menuText }, { quoted: msg })

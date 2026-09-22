@@ -1,17 +1,45 @@
 {
   "versions": [
     {
+      "version": "2.0",
+      "date": "2026-09-22",
+      "title": "🎉 Lanzamiento oficial de la v2.0",
+      "changes": [
+        "👤 Sistema de perfiles: .perfil, .setnombre, .setgenero, .setbio, .setedad",
+        "👁️ Revelar imágenes de una sola vista: .revelar",
+        "🎭 Comandos de diversión: .8ball, .dado, .moneda, .frase, .piropo",
+        "💰 Rework de economía: moneda configurable (🥕 carats)",
+        "⚙️ Nuevo .setconfig para ajustar economía sin tocar código",
+        "📊 Sistema de niveles y XP por mensajes",
+        "🎁 .daily con racha de días seguidos",
+        "⛏️ Nuevas formas de ganar: .minar, .cazar, .crimen, .loteria",
+        "🛒 Tienda con 6 items comprables (.tienda, .comprar, .inv, .usar)",
+        "🍀 Efectos activables: trébol (doble work), escudo (anti-robo), recarga, poción XP, dado cargado, caja misteriosa",
+        "🖼️ Media: .toimg, .tovideo, .attp",
+        "📦 Módulo de descargas compartido (lib/downloader.js)",
+        "📱 .instagram y .twitter (TikTok pospuesto)",
+        "🎨 .menu rediseñado con todos los comandos y prefijo dinámico"
+      ]
+    },
+    {
+      "version": "1.9",
+      "date": "2026-09-19",
+      "title": "Optimización de descargas",
+      "changes": [
+        "⚡ Mejorado: .play usa cache-dir persistente",
+        "📝 Mensaje de progreso más claro para el usuario",
+        "📁 Nueva carpeta yt-cache/ para acelerar descargas"
+      ]
+    },
+    {
       "version": "1.8",
       "date": "2026-09-19",
-      "title": "Corrección de bugs y compatibilidad",
+      "title": "Pre-v2.0: Correcciones y compatibilidad",
       "changes": [
         "🔧 Arreglado: el dinero ahora es independiente por cada grupo",
         "🔧 Arreglado: balance, top, robar, depositar y retirar funcionan por chat",
-        "✨ Mejorado: sistema de economía reescrito (clave chatId + userId)",
-        "✨ Mejorado: .menu ahora muestra el prefijo que usas (./#/!)",
-        "✨ Mejorado: .menu incluye .changelog y .version",
-        "📝 Documentación: README con sección de Termux",
-        "🎯 Preparación para v2.0 (comandos void para despues)"
+        "✨ Mejorado: .menu muestra el prefijo que usas",
+        "📝 Documentación: README completo con sección de Termux"
       ]
     },
     {
@@ -19,9 +47,8 @@
       "date": "2026-09-18",
       "title": "Changelog y arreglos",
       "changes": [
-        "✨ Nuevo: comando .changelog (historial de versiones)",
-        "🔧 Arreglado: .top mostraba usuarios de todos los grupos",
-        "✨ Nuevo: .top filtra solo usuarios del grupo actual",
+        "✨ Nuevo: comando .changelog",
+        "🔧 Arreglado: .top filtra solo usuarios del grupo actual",
         "✨ Nuevo: soporte para múltiples prefijos (. / # !)"
       ]
     },
